@@ -1,0 +1,49 @@
+type Hero {
+    id: ID!
+    name: String!
+    stats: Stat
+    imgUrl: String
+}
+
+input HeroInput {
+    name: String!
+    stats: Stat
+    imgUrl: String
+}
+
+input UpdateHeroInput {
+    id: ID!
+    name: String!
+    stats: Stat
+    imgUrl: String
+}
+
+type Stat {
+    id: ID!
+    intelligence: Int
+    strength: Int
+    speed: Int
+    durability: Int
+    power: Int
+    combat: Int
+}
+
+input StatInput {
+    intelligence: Int
+    strength: Int
+    speed: Int
+    durability: Int
+    power: Int
+    combat: Int
+}
+
+type Query {
+    getHeroByName(heroName: String!): Hero
+    listHero: [Hero]
+}
+
+type Mutation {
+    createHero(hero: HeroInput): Hero
+    deleteHero(heroId: String!): String
+    updateHero(hero: UpdateHeroInput!): Hero
+}
